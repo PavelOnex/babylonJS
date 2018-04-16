@@ -1,3 +1,3 @@
 <?php
-  header('Location: ./torus1.html')
+  header('Location: ./Torus.html')
 ?>

@@ -37,14 +37,18 @@
             camera1.setTarget(BABYLON.Vector3.Zero());
             camera1.attachControl(canvas,true);
             var tor = BABYLON.Mesh.CreateTorus("torus", 500, 498, 100, scene, false, BABYLON.Mesh.DEFAULTSIDE); // 50 47 50
+            var tor_net = BABYLON.Mesh.CreateTorus("torus_net", 500, 495, 100, scene, false, BABYLON.Mesh.DEFAULTSIDE); // 50 47 50
             var material = new BABYLON.StandardMaterial("material1",scene);
-            //material.wireframe = true;
-            //material.diffuseColor = BABYLON.Color3.Blue();
-            
-                material.diffuseTexture = new BABYLON.Texture("3.png", scene);
-                material.diffuseTexture.hasAlpha = true;//Have an alpha
-                material.backFaceCulling = false;
-                tor.material = material;
+            var material_net = new BABYLON.StandardMaterial("material_net",scene);
+            tor.position=new BABYLON.Vector3(0,0,0);
+            tor_net.position=new BABYLON.Vector3(0,12,0);
+            material_net.wireframe = true;
+            material_net.diffuseColor = BABYLON.Color3.Blue();
+            material.diffuseTexture = new BABYLON.Texture("3.png", scene);
+            material.diffuseTexture.hasAlpha = true;//Have an alpha
+            material.backFaceCulling = false;
+            tor.material = material;
+            tor_net.material = material_net;
 
             
              // This creates a light, aiming 0,1,0 - to the sky (non-mesh)
@@ -114,16 +118,19 @@ light.intensity = 1.2;
             {
                 y++;
                 scene.getMeshByName("torus").position.y += 0.7;
+                scene.getMeshByName("torus_net").position.y += 0.7;
             }
             if(z<37) //.8
             {
                 z++;
                 scene.getMeshByName("torus").position.z += 1;
+                scene.getMeshByName("torus_net").position.z += 1;
             }
             if(z>=37 && z<57)
             {   
                 z++;
                 scene.getMeshByName("torus").position.z += (1-0.01*a); 
+                scene.getMeshByName("torus_net").position.z += (1-0.01*a); 
                 a++ ;
             }
             scene.render();

@@ -43,7 +43,7 @@
             tor.position=new BABYLON.Vector3(0,0,0);
             tor_net.position=new BABYLON.Vector3(0,12,0);
             material_net.wireframe = true;
-            material_net.diffuseColor = BABYLON.Color3.Blue();
+            material_net.diffuseColor = BABYLON.Color3.White();
             material.diffuseTexture = new BABYLON.Texture("3.png", scene);
             material.diffuseTexture.hasAlpha = true;//Have an alpha
             material.backFaceCulling = false;
@@ -59,6 +59,7 @@ light.intensity = 1.2;
     var color1 = new BABYLON.Color4(0, 0.5, 0, 0.5);
 	var color2 = new BABYLON.Color4(0, 1, 0.3, 0.5);
 	var colorDead = new BABYLON.Color4(1, 0, 0, 0.1);
+		/*
     var particleSystem = new BABYLON.ParticleSystem("particles", 2000, scene);
     var url = "http://i166.photobucket.com/albums/u83/j1m68/star.jpg";
     // Ground
@@ -107,6 +108,7 @@ light.intensity = 1.2;
 
     // Start the particle system
     particleSystem.start();
+    */
             return scene;
         }
 
